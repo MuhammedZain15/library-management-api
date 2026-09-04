@@ -14,6 +14,7 @@ echo Starting Library Management API...
 echo Swagger will open at http://localhost:5181/swagger/index.html
 dotnet restore "LibraryApp\LibraryApp.csproj"
 if errorlevel 1 goto :failed
+start "" /b powershell.exe -NoProfile -WindowStyle Hidden -Command "Start-Sleep -Seconds 3; Start-Process 'http://localhost:5181/swagger/index.html'"
 dotnet run --project "LibraryApp\LibraryApp.csproj" --launch-profile http --no-restore
 exit /b %errorlevel%
 
