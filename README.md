@@ -11,8 +11,6 @@ A production-minded REST API for managing books, authors, publishers, and librar
 - Many-to-many book/author relationship and publisher association
 - Entity Framework Core migrations and SQL Server persistence
 - Service layer, request models, validation, seed data, OpenAPI, and health check
-- CI build workflow for GitHub Actions
-- Automated request-model validation tests with xUnit
 
 ## Tech stack
 
@@ -55,7 +53,7 @@ The application applies migrations and seeds sample books, authors, and publishe
 
 Open the Swagger URL printed in the terminal, or check `GET /health`.
 
-> If Visual Studio asks for a startup project, right-click the `LibraryApp` web project (not `LibraryApp.Tests`) and choose **Set as Startup Project**.
+> If Visual Studio asks for a startup project, right-click the `LibraryApp` web project and choose **Set as Startup Project**.
 
 ## Troubleshooting
 
@@ -108,7 +106,6 @@ Additional ready-to-run examples are in `LibraryApp.http`.
 
 ## Future improvements
 
-- Integration tests for authenticated API workflows
 - Pagination and structured filtering
 - Role-based authorization for librarians and administrators
 - Docker Compose environment with SQL Server

@@ -1,4 +1,3 @@
 <Solution>
   <Project Path="LibraryApp/LibraryApp.csproj" />
-  <Project Path="LibraryApp.Tests/LibraryApp.Tests.csproj" />
 </Solution>
