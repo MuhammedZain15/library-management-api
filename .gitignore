@@ -1,0 +1,30 @@
+## .NET build outputs
+bin/
+obj/
+artifacts/
+
+## Visual Studio / Rider / VS Code
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.userosscache
+
+## Local configuration and databases
+appsettings.Local.json
+*.db
+*.db-shm
+*.db-wal
+*.mdf
+*.ldf
+
+## Test and coverage output
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+## OS files
+.DS_Store
+Thumbs.db

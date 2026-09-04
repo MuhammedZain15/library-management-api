@@ -1,0 +1,36 @@
+@host = https://localhost:7001
+
+### Health check
+GET {{host}}/health
+
+### Register (stores the authentication cookie in supported clients)
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "Portfolio",
+  "lastName": "User",
+  "userName": "portfolio.user",
+  "email": "portfolio@example.com",
+  "phone": "+201000000000",
+  "password": "Portfolio1!"
+}
+
+### List or search books
+GET {{host}}/api/books?search=clean
+
+### Create a book (requires the login cookie)
+POST {{host}}/api/books
+Content-Type: application/json
+
+{
+  "title": "Domain-Driven Design",
+  "price": 450,
+  "description": "A practical guide to modelling complex software domains.",
+  "author": "Eric Evans",
+  "isRead": false,
+  "rate": 5,
+  "genre": "Software Engineering",
+  "publisherId": 1,
+  "authorsId": [1]
+}
