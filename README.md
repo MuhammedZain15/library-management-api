@@ -39,7 +39,7 @@ LibraryApp/
 Prerequisites: .NET 10 SDK and SQL Server LocalDB (or another SQL Server instance).
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/MuhammedZain15/library-management-api.git
 cd library-management-api/LibraryApp
 dotnet restore
 dotnet run
