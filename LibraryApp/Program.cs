@@ -15,7 +15,7 @@ builder.Services.AddControllers()
 builder.Services.AddOpenApi();
 builder.Services.AddHealthChecks();
 builder.Services.AddDbContext<AppDbContext>(option =>
-option.UseSqlServer(builder.Configuration.GetConnectionString("conString")
+option.UseSqlite(builder.Configuration.GetConnectionString("conString")
 ));
 builder.Services.AddIdentity<AppUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()

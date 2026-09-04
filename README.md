@@ -9,14 +9,14 @@ A production-minded REST API for managing books, authors, publishers, and librar
 - ASP.NET Core Identity registration, login, logout, and current-user endpoints
 - Protected write operations with public read access
 - Many-to-many book/author relationship and publisher association
-- Entity Framework Core migrations and SQL Server persistence
+- Zero-configuration SQLite persistence
 - Service layer, request models, validation, seed data, OpenAPI, and health check
 
 ## Tech stack
 
 - .NET 10 and ASP.NET Core Web API
 - Entity Framework Core 10
-- SQL Server / SQL Server LocalDB
+- SQLite
 - ASP.NET Core Identity
 - OpenAPI and Swagger UI
 
@@ -26,7 +26,6 @@ A production-minded REST API for managing books, authors, publishers, and librar
 LibraryApp/
 ├── Controllers/      HTTP endpoints and authentication
 ├── Data/             DbContext and database seeding
-├── Migrations/       EF Core database history
 ├── Model/            Domain and Identity entities
 ├── Services/         Business logic and data access
 └── View_Model/       Validated API request models
@@ -34,7 +33,7 @@ LibraryApp/
 
 ## Run locally
 
-Prerequisites: .NET 10 SDK and SQL Server LocalDB (or another SQL Server instance).
+Prerequisite: .NET 10 SDK. No database server or extra setup is required.
 
 ### Windows: one-click start
 
@@ -49,7 +48,7 @@ dotnet restore
 dotnet run
 ```
 
-The application applies migrations and seeds sample books, authors, and publishers on startup. To use another SQL Server, override `ConnectionStrings__conString` or edit `LibraryApp/appsettings.json`.
+The application creates a local `library.db` file and seeds sample books, authors, and publishers automatically on first startup.
 
 Open the Swagger URL printed in the terminal, or check `GET /health`.
 
@@ -58,7 +57,7 @@ Open the Swagger URL printed in the terminal, or check `GET /health`.
 ## Troubleshooting
 
 - **Couldn't find a project to run:** run `run.cmd`, or pass `--project LibraryApp/LibraryApp.csproj` from the repository root.
-- **SQL connection error:** install the SQL Server Express LocalDB component, or replace `ConnectionStrings:conString` with your SQL Server connection string.
+- **Database file error:** ensure the project folder is writable. During development, deleting `LibraryApp/library.db` recreates a fresh database on the next run.
 - **Port already in use:** stop the process using port `5181`, or change the `http` URL in `Properties/launchSettings.json`.
 
 ## Main endpoints
