@@ -38,6 +38,12 @@ LibraryApp/
 
 Prerequisites: .NET 10 SDK and SQL Server LocalDB (or another SQL Server instance).
 
+### Windows: one-click start
+
+Clone or download the repository, then double-click `run.cmd` in the repository root. It restores the application, starts it over HTTP, and opens Swagger automatically.
+
+### Terminal
+
 ```bash
 git clone https://github.com/MuhammedZain15/library-management-api.git
 cd library-management-api/LibraryApp
@@ -48,6 +54,14 @@ dotnet run
 The application applies migrations and seeds sample books, authors, and publishers on startup. To use another SQL Server, override `ConnectionStrings__conString` or edit `LibraryApp/appsettings.json`.
 
 Open the Swagger URL printed in the terminal, or check `GET /health`.
+
+> If Visual Studio asks for a startup project, right-click the `LibraryApp` web project (not `LibraryApp.Tests`) and choose **Set as Startup Project**.
+
+## Troubleshooting
+
+- **Couldn't find a project to run:** run `run.cmd`, or pass `--project LibraryApp/LibraryApp.csproj` from the repository root.
+- **SQL connection error:** install the SQL Server Express LocalDB component, or replace `ConnectionStrings:conString` with your SQL Server connection string.
+- **Port already in use:** stop the process using port `5181`, or change the `http` URL in `Properties/launchSettings.json`.
 
 ## Main endpoints
 
